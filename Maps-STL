@@ -1,0 +1,35 @@
+#include <iostream>
+#include <map>
+#include <string>
+
+using namespace std;
+
+int main() {
+    int q, type, marks;
+    string name;
+    cin >> q;
+    
+    map<string, int> m;
+    
+    while (q--) {
+        cin >> type;
+        if (type == 1) {
+            cin >> name >> marks;
+            // Adds marks to the existing total or creates a new entry
+            m[name] += marks;
+        } 
+        else if (type == 2) {
+            cin >> name;
+            // Erases the student record entirely
+            m.erase(name);
+        } 
+        else if (type == 3) {
+            cin >> name;
+            // If name is not found, map's [] operator returns 0 (default for int)
+            cout << m[name] << endl;
+        }
+    }
+    
+    return 0;
+}
+
