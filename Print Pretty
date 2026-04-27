@@ -1,0 +1,25 @@
+#include <iostream>
+#include <iomanip> 
+
+using namespace std;
+
+int main() {
+  int T; cin >> T;
+  while(T--) {
+    double A, B, C;
+    cin >> A >> B >> C;
+
+    /* Line 1: Hexadecimal */
+    // convert to long to truncate, then use hex and showbase
+    cout << hex << left << showbase << nouppercase << (long long)A << endl;
+
+    /* Line 2: Precision 2, Sign, Right-justified, Padded with underscores */
+    // internal places the sign on the left and the number on the right 
+    // but since we need the sign + number right-justified, we use 'right'
+    cout << setw(15) << setfill('_') << right << showpos << fixed << setprecision(2) << B << endl;
+
+    /* Line 3: Scientific notation, uppercase, 9 decimal places */
+    cout << scientific << uppercase << noshowpos << setprecision(9) << C << endl;
+  }
+  return 0;
+}
